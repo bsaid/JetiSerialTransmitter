@@ -29,5 +29,3 @@ public:
         delayMicroseconds(2*m_delay);
     }
 };
-
-JETISerial JetiSerial;

@@ -61,5 +61,3 @@ public:
         }
     }
 };
-
-JETISerial JetiSerial;

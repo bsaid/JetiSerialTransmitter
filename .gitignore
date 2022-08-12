@@ -1,3 +1,4 @@
+# Look, this file has 8 lines, main.cpp has 16 lines, JetiSerialSingleCore.h has 32 lines, and JetiSerial.h has 64 lines of code.
 .pio
 .vscode/.browse.c_cpp.db*
 .vscode/c_cpp_properties.json

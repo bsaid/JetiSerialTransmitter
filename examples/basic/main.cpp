@@ -2,6 +2,7 @@
 #include "JetiSerial.h"
 
 void setup() {
+  JETISerial JetiSerial;
   JetiSerial.begin(9600, 32);
 
   for(uint8_t i=0; ; i++) {
