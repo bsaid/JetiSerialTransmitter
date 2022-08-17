@@ -45,8 +45,34 @@ public:
         vTaskDelete(jetiHandle);
     }
 
+    /**
+     * @brief Adds a byte of data to TX queue.
+     * 
+     * @param ch data byte
+     * @param bit9 9th bit of the data
+     */
     void send(uint8_t ch, uint8_t bit9) {
         addToQueue(bit9*0x100+ch); // awful
+    }
+
+    /**
+     * @brief Returns the number of bytes in the TX queue.
+     * 
+     * @return uint16_t number of bytes in the TX queue.
+     */
+    uint16_t available() {
+        return uxQueueMessagesWaiting(JETISerial_queue);
+    }
+
+    /**
+     * @brief Waits until the TX is not empty.
+     * 
+     */
+    void flush() {
+        while(available()) {
+            vTaskDelay(1);
+            yield();
+        }
     }
 
     static void vTaskCode( void * pvParameters )
@@ -58,6 +84,7 @@ public:
                 sendFromQueue(ch);
             }
             vTaskDelay(1);
+            yield();
         }
     }
 };

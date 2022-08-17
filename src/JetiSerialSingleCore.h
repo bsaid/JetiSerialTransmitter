@@ -11,6 +11,12 @@ public:
         m_delay = 1000000 / speed; // awful
     }
 
+    /**
+     * @brief Adds a byte of data to TX queue.
+     * 
+     * @param ch data byte
+     * @param bit9 9th bit of the data
+     */
     void send(uint8_t ch, uint8_t bit9) {
         digitalWrite(m_pin, LOW); // start
         delayMicroseconds(m_delay);
